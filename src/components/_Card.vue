@@ -1,17 +1,20 @@
 <template>
     <div class="items">
         <div v-for="(elemento, indice) in cards" :key="indice" class="card">
-            <div class="image"><img src="cards.poster" alt=""></div>
-            <div class="title">{{cards.title}}</div>
-            <div class="author">{{cards.author}}</div>
-            <div class="year">{{cards.year}}</div>
+            <div class="image"><img :src="elemento.poster" alt=""></div>
+            <div class="title">{{elemento.title}}</div>
+            <div class="author">{{elemento.author}}</div>
+            <div class="year">{{elemento.year}}</div>
         </div>
     </div>
+
     
 </template>
 
 <script>
 import axios from "axios";
+
+
 export default {
     name: 'Card',
     data() {
@@ -40,17 +43,22 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .items{
         display: flex;
         flex-wrap: wrap;
         max-width: 1000px;
     }
 
+    img{
+        height: 130px;
+        width: 130px;
+    }
+
     .card{
         height: 300px;
         width: 170px;
-        padding: 10px;
+        padding: 20px;
         text-align: center;
         margin: 0px 25px 15px 0px;
         background-color: #2D3A46;
