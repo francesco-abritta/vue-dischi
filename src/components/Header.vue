@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .header{
         height: 60px;
         background-color: #2D3A46;
