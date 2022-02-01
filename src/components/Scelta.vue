@@ -1,8 +1,8 @@
 <template>
     <div class="select">
         <div class="scelta">Scegli:</div>
-        <select name="genere" id="select">
-            <option value="Tutti">Tutti</option>
+        <select name="genere" @change="$emit('filtra', GenereSelezionato)" v-model="GenereSelezionato">
+            <option value="">Tutti</option>
             <option value="Rock">Rock</option>
             <option value="Pop">Pop</option>
             <option value="Jazz">Jazz</option>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-
+    name: "Scelta",
+    data() {
+        return{
+            GenereSelezionato:"",
+        }
+    }
 }
 </script>
 
@@ -21,7 +26,7 @@ export default {
     .select{
         background-color: #1E2D3B;
         text-align: center;
-        padding-top: 20px;
+        padding: 20px 0;
         display: flex;
         justify-content: center;
         font-size: 20px;

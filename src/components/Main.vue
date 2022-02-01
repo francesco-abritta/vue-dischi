@@ -1,9 +1,9 @@
 <template>
   <div>
-        <Scelta />
+        <Scelta @filtra="filtraPerGenere" />
         <div class="main">
             <div class="items">
-                <Card v-for="(elemento, indice) in cards" :key="indice" :album="elemento"/>
+                <Card v-for="(elemento, indice) in filtrati" :key="indice" :album="elemento"/>
             </div>
         </div>
   </div>
@@ -25,10 +25,18 @@ export default {
         return {
             apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
             cards: [],
+            input:"",
         }
     },
     created(){
         this.getCards();
+    },
+    computed: {
+      filtrati(){
+        return this.cards.filter( (info) => {
+          return info.genre.toLowerCase().includes(this.input.toLowerCase());
+        });
+      }
     },
     methods: {
         getCards(){
@@ -42,7 +50,10 @@ export default {
                     // handle error
                     console.log(error);
                 });
-        }
+        },
+        filtraPerGenere(genereSelected){
+            this.input = genereSelected;
+        },
     }
 }
 </script>
