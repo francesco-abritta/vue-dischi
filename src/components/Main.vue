@@ -1,18 +1,45 @@
 <template>
   <div>
       <div class="main">
-            <Card />
+          <div class="items">
+              <Card v-for="(elemento, indice) in cards" :key="indice" :album="elemento"/>
+          </div>
       </div>
   </div>
 </template>
 
 <script>
-import Card from './_Card.vue'
+import Card from './Card.vue'
+import axios from "axios";
+
 
 export default {
     name: 'Main',
     components: {
         Card
+    },
+    data() {
+        return {
+            apiURL: "https://flynn.boolean.careers/exercises/api/array/music",
+            cards: [],
+        }
+    },
+    created(){
+        this.getCards();
+    },
+    methods: {
+        getCards(){
+            axios
+                .get(this.apiURL)
+                .then( (risposta) => {
+                    // handle success
+                    this.cards = risposta.data.response;
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
+        }
     }
 }
 </script>
@@ -27,5 +54,11 @@ export default {
         justify-content: center;
         align-items: center;
         font-family: 'Roboto' , sans-serif;
+    }
+
+    .items{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
     }
 </style>
