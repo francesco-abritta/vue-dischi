@@ -1,22 +1,25 @@
 <template>
   <div>
-      <div class="main">
-          <div class="items">
-              <Card v-for="(elemento, indice) in cards" :key="indice" :album="elemento"/>
-          </div>
-      </div>
+        <Scelta />
+        <div class="main">
+            <div class="items">
+                <Card v-for="(elemento, indice) in cards" :key="indice" :album="elemento"/>
+            </div>
+        </div>
   </div>
 </template>
 
 <script>
 import Card from './Card.vue'
+import Scelta from './Scelta.vue'
 import axios from "axios";
 
 
 export default {
     name: 'Main',
     components: {
-        Card
+        Card,
+        Scelta
     },
     data() {
         return {
