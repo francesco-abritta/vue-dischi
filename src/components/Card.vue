@@ -16,11 +16,8 @@ export default {
 }
 </script>
 
-<style scoped>
-    img{
-        height: 130px;
-        width: 130px;
-    }
+<style scoped lang="scss">
+    
 
     .card{
         height: 300px;
@@ -29,18 +26,25 @@ export default {
         text-align: center;
         margin: 0px 25px 15px 0px;
         background-color: #2D3A46;
+
+        img{
+            height: 130px;
+            width: 130px;
+        }
+
+        .title{
+            color: white;
+            text-transform: uppercase;
+            font-style: bold;
+            margin: 15px 0;
+            font-size: 20px;
+        }
+
+        .author, .year{
+            color: #7A776F;
+            font-size: 15px;
+        }
     }
 
-    .title{
-        color: white;
-        text-transform: uppercase;
-        font-style: bold;
-        margin: 15px 0;
-        font-size: 20px;
-    }
-
-    .author, .year{
-        color: #7A776F;
-        font-size: 15px;
-    }
+    
 </style>

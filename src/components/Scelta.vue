@@ -22,9 +22,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+@import '../assets/var.scss';
+
     .select{
-        background-color: #1E2D3B;
+        background-color: $background;
         text-align: center;
         padding: 20px 0;
         display: flex;
